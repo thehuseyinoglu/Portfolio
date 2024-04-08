@@ -1,0 +1,560 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.cable {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+
+  transform: scale(0.5);
+  transform: rotate(90deg);
+}
+
+.head {
+  width: 4.25em; /* 8.5em'in yarısı */
+  height: 4.25em; /* 8.5em'in yarısı */
+  border-radius: 2px 0 0 2px;
+  position: relative;
+  background: linear-gradient(90deg, transparent 80%, rgba(0, 0, 0, 12%)),
+    linear-gradient(
+      -45deg,
+      hsl(0, 0%, 75%),
+      hsl(0, 0%, 79%),
+      hsl(0, 0%, 78%),
+      hsl(0, 0%, 87%) 80%
+    );
+}
+
+.head::before {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  width: 5px; /* 3em'nin yarısı */
+  height: 100%; /* 7.3em'nin yarısı */
+
+  border-radius: 0.5em;
+  background-color: grey;
+}
+
+.body {
+  width: 7.75em; /* 15.5em'nin yarısı */
+  height: 5.5em; /* 11em'nin yarısı */
+  border-radius: 0.25em; /* 0.5em'nin yarısı */
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+    hsl(0, 0%, 91%),
+    white 15%,
+    hsl(0, 0%, 93%) 50%,
+    hsl(0, 0%, 87%) 70%,
+    hsl(0, 0%, 79%) 90%,
+    hsl(0, 0%, 84%),
+    hsl(0, 0%, 86%)
+  );
+}
+
+.body::before {
+  content: "";
+  position: absolute;
+  width: 1000px; /* 13.5em'nin yarısı */
+  height: 3em; /* 6em'nin yarısı */
+  left: 7.75em;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 4%), transparent 10%),
+    linear-gradient(90deg, rgba(0, 0, 0, 4%), transparent 20%),
+    linear-gradient(
+      white,
+      hsl(0, 0%, 96%) 5%,
+      hsl(0, 0%, 97%) 20%,
+      hsl(0, 0%, 95%) 50%,
+      hsl(0, 0%, 81%) 95%,
+      white
+    );
+}
+
+.main-screen {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.6px);
+  -webkit-backdrop-filter: blur(7.6px);
+  border: 1px solid rgba(255, 255, 255, 0.33);
+}
+
+svg {
+  height: 300px;
+}
+
+/* KEYFRAMES */
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes spin3D {
+  from {
+    transform: rotate3d(0.5, 0.5, 0.5, 360deg);
+  }
+  to {
+    transform: rotate3d(0deg);
+  }
+}
+
+/* GRID STYLING */
+
+.spinner-box {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+/* SPINNING CIRCLE */
+
+.leo {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.blue-orbit {
+  width: 165px;
+  height: 165px;
+  border: 1px solid #91daffa5;
+  -webkit-animation: spin3D 3s linear 0.2s infinite;
+}
+
+.green-orbit {
+  width: 120px;
+  height: 120px;
+  border: 1px solid #91ffbfa5;
+  -webkit-animation: spin3D 2s linear 0s infinite;
+}
+
+.red-orbit {
+  width: 90px;
+  height: 90px;
+  border: 1px solid #ffca91a5;
+  -webkit-animation: spin3D 1s linear 0s infinite;
+}
+
+.white-orbit {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #ffffff;
+  -webkit-animation: spin3D 2s linear 0s infinite;
+}
+
+.w1 {
+  transform: rotate3D(1, 1, 1, 90deg);
+}
+
+.w2 {
+  transform: rotate3D(1, 2, 0.5, 90deg);
+}
+
+.w3 {
+  transform: rotate3D(0.5, 1, 2, 90deg);
+}
+
+.neon {
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff,
+    0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
+}
+
+.phone-background {
+  background: url("https://w0.peakpx.com/wallpaper/730/501/HD-wallpaper-iphone-14-pro-thumbnail.jpg");
+  background-size: cover;
+}
+
+.container {
+  animation: scale-up 2s linear;
+}
+
+.newsletter {
+  width: 800px;
+  background-color: whitesmoke;
+  padding: 5px;
+  border: 1px solid black;
+  transform: rotate(-5deg);
+  position: relative;
+}
+.newsletter-item {
+
+  background-color: whitesmoke;
+
+}
+.newsletter-base {
+  animation: rotate 0.5s linear 5;
+}
+
+.newsletter::before {
+  content: "";
+  width: 8px;
+  height: 98%;
+  position: absolute;
+  left: -10px;
+  top: 1%;
+  background-color: whitesmoke;
+  border: 1px solid black;
+}
+
+.newsletter::after {
+  content: "";
+  width: 8px;
+  height: 96%;
+  position: absolute;
+  left: -19px;
+  top: 2%;
+  background-color: whitesmoke;
+  border: 1px solid black;
+}
+
+.name {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+  font-size: 60px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 10px 5px;
+}
+
+.title h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  font-size: 65px;
+}
+
+.content {
+  display: flex;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-side h2 {
+  display: flex;
+  gap: 5px;
+  flex-direction: row;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 10px 5px;
+}
+
+.left-side div {
+  display: flex;
+}
+
+.left-side div p {
+  padding: 5px;
+}
+
+.right-side {
+  padding: 0 10px;
+  font-size: x-small;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes scale-up {
+  0% {
+    transform: scale(1%);
+  }
+  100% {
+    transform: scale(100%);
+  }
+}
+
+/*Face Right (Default)*/
+
+.minion {
+  position: relative;
+  width: 100px;
+  height: 300px;
+  margin: 30px 70px 130px 50px;
+  animation: minion 2s linear infinite;
+  display: inline-block;
+}
+
+.minion.brand {
+  margin: 30px 70px 50px 50px;
+}
+
+.minion .head .eye:after,
+.minion span:before,
+.minion span:after {
+  content: "";
+  position: relative;
+  display: block;
+}
+
+.minion span,
+.minion .torso:before,
+.minion .torso:after {
+  display: block;
+  background: #efefef;
+  -webkit-box-shadow: 0 0 0 2px rgba(50, 50, 50, 1);
+  box-shadow: 0 0 0 2px rgba(50, 50, 50, 1);
+}
+
+.minion .head {
+  width: 100%;
+  height: 33%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  overflow: hidden;
+  background-position: top right;
+}
+
+.minion .head .eye {
+  margin-top: 18%;
+  margin-left: 61%;
+  width: 40%;
+  height: 50%;
+  -webkit-border-radius: 20% 100% 100% 20%;
+  border-radius: 70% 100% 100% 70%;
+  background: #000000;
+  border: solid 3px #999999;
+}
+
+.minion .head .eye:after,
+.minion.forward .head .eye:before {
+  top: 40%;
+  left: 55%;
+  width: 23%;
+  height: 20%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  background: #ffffff;
+  -webkit-box-shadow: 0 0 10px 3px rgba(255, 255, 255, 1);
+  box-shadow: 0 0 10px 3px rgba(255, 255, 255, 1);
+}
+
+.minion .torso {
+  position: relative;
+  width: 80%;
+  margin-left: 10%;
+  height: 47%;
+  margin-top: -10px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background-position: right top;
+  background-repeat: no-repeat;
+}
+
+.minion .torso:before {
+  /*Right Arm*/
+  float: left;
+  width: 45%;
+  margin: 5% 0 0 27%;
+  height: 80%;
+  border-radius: 45%;
+  transform-origin: 50% 7%;
+  transform: rotate(0deg);
+}
+
+.minion .torso:after {
+  /*Left Arm*/
+  width: 45%;
+  margin: 5% 0 0 27%;
+  height: 80%;
+  border-radius: 45%;
+  transform-origin: 50% 7%;
+  transform: rotate(30deg);
+  z-index: -1;
+}
+
+.minion .flame,
+.minion .flame:after {
+  width: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-border-radius: 100px 100px 100px 0;
+  border-radius: 100px 100px 100px 0;
+}
+
+.minion .flame {
+  margin: 4% 0 0 27%;
+  height: 17%;
+  transform: rotate(-45deg);
+  animation: flame 1s ease-out infinite;
+  border: none;
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff,
+    0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
+}
+
+.minion .flame:after {
+  top: 10%;
+  margin: 12% 0 0 40%;
+  height: 50%;
+}
+
+/*Face Left*/
+
+.minion.left .head .eye {
+  margin-left: -7%;
+  border-radius: 100% 70% 70% 100%;
+  position: absolute;
+  top: 5px;
+}
+.minion.left .head {
+  background-position: left top;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.minion.left .head .eye:after {
+  left: 23%;
+}
+.minion.left .torso {
+  background-position: left top;
+  background-repeat: no-repeat;
+}
+.minion.left .torso:before {
+  /*Left Arm*/
+  transform: rotate(80deg);
+  background-position: top left;
+}
+.minion.left .torso:after {
+  /*Right Arm*/
+  transform: rotate(50deg);
+}
+
+/*Face Forward*/
+.minion.forward .head {
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+.minion.forward .head:before {
+  background: #efefef;
+  float: left;
+  margin: 12% 0 0 43%;
+  border-bottom: solid 3px #999999;
+  border-left: solid 3px #999999;
+  width: 12%;
+  height: 12%;
+  transform: rotate(-45deg);
+}
+.minion.forward .head:after {
+  background: #efefef;
+  float: left;
+  margin: -9% 0 0 43%;
+  border-top: solid 3px #999999;
+  border-right: solid 3px #999999;
+  width: 12%;
+  height: 12%;
+  transform: rotate(-45deg);
+  border-radius: 100%;
+}
+.minion.forward .head .eye {
+  margin-left: 6%;
+  border-radius: 30%;
+  width: 82%;
+}
+.minion.forward .head .eye:after {
+  left: 70%;
+  top: 20%;
+  width: 12%;
+}
+.minion.forward .head .eye:before {
+  left: 18%;
+  width: 12%;
+}
+.minion.forward .torso {
+  z-index: -1;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+.minion.forward .torso:before {
+  /*Left Arm*/
+  width: 30%;
+  margin: 5% 0 0 0%;
+  height: 80%;
+  transform: rotate(15deg);
+}
+.minion.forward .torso:after {
+  /*Right Arm*/
+  width: 30%;
+  margin: 5% 0 0 68%;
+  height: 80%;
+  transform: rotate(-15deg);
+  z-index: 1;
+}
+
+/* Blue */
+
+.minion.blue .flame,
+.minion.blue .flame:after {
+  background: rgba(25, 88, 150, 0.5);
+}
+.minion.blue .head .eye:after,
+.minion.blue.forward .head .eye:before {
+  background: rgba(21, 87, 219, 0.917);
+  -webkit-box-shadow: 0 0 10px 3px rgba(0, 0, 255, 0.8);
+  box-shadow: 0 0 10px 3px rgba(0, 0, 255, 0.8);
+}
+
+@keyframes flame {
+  0% {
+    margin-top: 0%;
+  }
+  50% {
+    margin-top: -4%;
+  }
+  100% {
+    margin-top: 0%;
+  }
+}
+@keyframes minion {
+  0% {
+    padding-top: 0.4%;
+  }
+  50% {
+    padding-top: 0%;
+  }
+  100% {
+    padding-top: 0.4%;
+  }
+}
+@keyframes movePage {
+  from {}
+  to {right: -1000px;}
+}
+
+.deactive{
+  animation: movePage 2s linear;
+}
+
+.menu-glass{
+ /* From https://css.glass */
+background: rgba(0, 0, 0, 0.27);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5.9px);
+-webkit-backdrop-filter: blur(5.9px);
+}
